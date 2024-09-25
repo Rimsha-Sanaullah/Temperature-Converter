@@ -9,7 +9,7 @@ function App() {
   const [result, setResult] = useState('0.00'); // State for result
 
   function handleChange(event) {
-    setScale(event.target.value); // Update scale state
+    setScale(event.target.value); 
   }
 
   function convertTemperature(input, scale) {
@@ -31,27 +31,41 @@ function App() {
     <Box
       sx={{
         display: 'flex',
+        flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
         height: '100vh',
         backgroundColor: '#f5f5f5', 
       }}
     >
+      <Typography 
+        variant='h4'
+        color='primary'
+        sx={{
+          marginBottom: '60px',
+          fontFamily: { xs: 'Arial, sans-serif', sm: 'Roboto, sans-serif' }, 
+          textAlign: 'center',
+        }}
+      >
+        Temperature Converter
+      </Typography>
       <Box
         sx={{
           backgroundColor: '#ffffff', 
-          padding: '40px',
+          padding: { xs: '20px', sm: '40px' },
           borderRadius: '8px',
           boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', 
+          width: { xs: '90%', sm: 'auto' },
         }}
       >
         <Box
           sx={{
             display: 'flex',
+            flexDirection: { xs: 'column', sm: 'row' }, 
             justifyContent: 'center',
             alignItems: 'center',
             gap: '20px',
-            marginBottom: '20px', 
+            marginBottom: '20px',
           }}
         >
           <TextField 
@@ -59,12 +73,14 @@ function App() {
             type='number' 
             variant='outlined' 
             required 
-            sx={{ width: '150px' }} 
+            sx={{ width: { xs: '100%', sm: '150px' } }} 
             value={input} 
             onChange={e => setInput(e.target.value)} 
           />
 
-          <FormControl sx={{ width: '150px' }}> 
+          <FormControl sx={{ width: { xs: '100%', sm: '150px' } }}
+            variant="outlined"
+          > 
             <InputLabel>Scale</InputLabel>
             <Select
               label="Select"
